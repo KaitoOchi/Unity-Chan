@@ -1,9 +1,128 @@
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>test site</title>
-</head>
-<body>
-    <p>Hello World</p>
-</body>
-</html>
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Unity&lowbar;Chan&excl;</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <p><a id="anchor1"></a></p>
+<h1 id="unity_chan">Unity_Chan!</h1>
+<p>制作：越智海斗</p>
+<p><a id="anchor2"></a></p>
+<h2 id="目次">目次</h2>
+<ul>
+<li><a href="#anchor1">Unity_Chan!</a></li>
+<li><a href="#anchor2">目次</a></li>
+<li><a href="#anchor3">概要</a><br>
+　1. <a href="#anchor4">紹介動画</a><br>
+　2. <a href="#anchor5">使用ツール</a><br>
+　3. <a href="#anchor6">使用言語</a><br>
+　4. <a href="#anchor7">開発期間</a><br></li>
+<li><a href="#anchor8">操作方法</a></li>
+<li><a href="#anchor9">特徴</a><br>
+　1. <a href="#anchor10">State</a><br>
+　2. <a href="#anchor11">基底クラス</a><br>
+　3. <a href="#anchor12">Levelデザイン</a><br>
+　4. <a href="#anchor13">動く床</a><br>
+　5. <a href="#anchor14">壁キック</a><br></li>
+</ul>
+<p><a id="anchor3"></a></p>
+<h2 id="概要">概要</h2>
+<p>2Dのスクロール型アクションで、特殊武器と特殊アクションを駆使し、<br>
+ステージ最奥にいるボスを撃破するゲームです。</p>
+<p><a id="anchor4"></a>
+1.<strong>紹介動画</strong><br>
+<a href="https://youtu.be/QxvxDh62Y8c">https://youtu.be/QxvxDh62Y8c</a></p>
+<p><a id="anchor5"></a>
+2.<strong>使用ツール</strong><br>
+Visual Studio 2022<br>
+3ds Max 2023<br>
+Adobe Photoshop 2022<br></p>
+<p><a id="anchor6"></a>
+3.<strong>使用言語</strong><br>
+C++<br></p>
+<p><a id="anchor7"></a>
+4.<strong>開発期間</strong><br>
+2022.09 ~ 2023.01<br></p>
+<p><a id="anchor8"></a></p>
+<h2 id="操作方法">操作方法</h2>
+<p><img src="https://user-images.githubusercontent.com/109284106/213832976-033ceea1-2a82-4b48-b7f1-92c980e166d0.png" alt="image"></p>
+<p><a id="anchor9"></a></p>
+<h2 id="特徴">特徴</h2>
+<p><a id="anchor10"></a></p>
+<h3 id="1-state"><strong>1. State</strong><br></h3>
+<hr>
+<p>プレイヤーのアクションをStateパターンで書くことにより、ジャンプ、走る、スライディングなどの状態の<br>
+重複を防ぎ、また、アクションを追加する際のコードミスを減らし、視認性を上げる目的があります。
+<img src="https://user-images.githubusercontent.com/109284106/212590520-b2fd050d-3223-457d-8049-a5ac1750b227.png" alt="image">
+<br></p>
+<p><a id="anchor11"></a></p>
+<h3 id="2-基底クラス"><strong>2. 基底クラス</strong><br></h3>
+<hr>
+<p>プレイヤー、敵、ボスに共通する、「座標」「HP」「方向」などを<br>
+基底クラスActorにまとめ、コードの簡略化をしています。
+<img src="https://user-images.githubusercontent.com/109284106/212590983-78d5c010-3fc2-4640-80e4-c07103b94b6c.png" alt="image">
+<br></p>
+<p><a id="anchor12"></a></p>
+<h3 id="3-levelデザイン"><strong>3. Levelデザイン</strong><br></h3>
+<hr>
+<p>マップに登場する敵やオブジェクト、マップスクロールする座標は、すべて3dsMaxに配置し、<br>
+指定したレベルを読み込むことでクラスを召喚させています。
+<img src="https://user-images.githubusercontent.com/109284106/212591366-83e8552f-9010-422a-b9a9-520fb572243f.png" alt="image"></p>
+<p><a id="anchor13"></a></p>
+<h3 id="4-動く床"><strong>4. 動く床</strong><br></h3>
+<hr>
+<p>使用している学内製のエンジンでは、静的物理オブジェクトクラスの座標指定関数が無く、<br>
+また、接地したときにプレイヤーの移動もされないので、動く床を自作する必要がありました。
+<img src="https://user-images.githubusercontent.com/109284106/212591437-4b9b0f2e-d678-4239-8af3-eb09fca0c689.png" alt="image"><br>
+動く床に触れているとき、変数addMoveSpeedに床の移動方向の値を入れ、<br>
+最終的なプレイヤーの移動速度の計算時に加算することで求めています。
+<br></p>
+<p><a id="anchor14"></a></p>
+<h3 id="5-壁キック"><strong>5. 壁キック</strong><br></h3>
+<hr>
+<p>このエンジンには他にも、接地判定はありますが、壁に触れたときの判定を出力する関数がなく、<br>
+動く床同様自作する必要があります。
+<img src="https://user-images.githubusercontent.com/109284106/212591579-adb3c9f9-ff25-497b-88d3-b0d908ca8b90.png" alt="image">
+「壁キックを出す条件」を考えたとき、「移動キーの入力がされている状態」かつ
+「プレイヤーの移動がない（座標が変わらない）状態」に、壁キックを出せるようにしました。</p>
+
+        
+        
+    </body>
+    </html>
